@@ -48,6 +48,7 @@ gulp.task('js', function() {
 gulp.task('compass', function() {
   gulp.src(sassSources)
     .pipe(compass({
+      sourcemap: true,
       sass: 'components/sass',
       css: outputDir + 'css',
       image: outputDir + 'images',
@@ -55,7 +56,7 @@ gulp.task('compass', function() {
       require: ['susy', 'breakpoint']
     })
     .on('error', gutil.log))
-//    .pipe(gulp.dest( outputDir + 'css'))
+    .pipe(gulp.dest( outputDir + 'css'))
     .pipe(connect.reload())
 });
 
